@@ -10,7 +10,6 @@ const { http: { port } } = config;
 const app = express();
 
 const miiverse = require('./services/miiverse-api');
-const webApi = require('./services/web-api');
 
 app.set('etag', false);
 app.disable('x-powered-by');
@@ -27,7 +26,6 @@ app.use(xmlparser);
 
 // import the servers into one
 app.use(miiverse);
-app.use(webApi);
 
 // 404 handler
 logger.info('Creating 404 status handler');
